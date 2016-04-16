@@ -3,16 +3,18 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
+title: 代码手工艺人
+subtitle: Joey 的 Blog
 description:
-author: John Doe
+author: Joey Blue (Xueshi Qiao)
 language:
 timezone:
 
+
+
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: joeyio.com #debug: http://127.0.0.1:4000
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -20,6 +22,7 @@ permalink_defaults:
 # Directory
 source_dir: source
 public_dir: public
+image_dir: assets #source/assets
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
@@ -28,7 +31,7 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :title.md # File name of new posts
+new_post_name: :year-:month-:day-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
@@ -42,6 +45,16 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace:
+
+#Markdown
+marked:
+  gfm: true
+  pedantic: false
+  sanitize: false
+  tables: true
+  breaks: true
+  smartLists: true
+  smartypants: true
 
 # Category & Tag
 default_category: uncategorized
@@ -63,9 +76,16 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: hacker #landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: rsync
+  host: 128.199.172.60
+  user: root
+  root: /opt/blog
+  port: 22
+  delete: true #Delete old files on remote host
+  verbose: true #Display verbose messages
+  ignore_errors: false #Ignore errors
