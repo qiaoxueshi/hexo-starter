@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "如何在一个设备上安装一个App的两个不同版本"
-image: "/assets/resources/2013-08-16-how-to-have-two-versions-of-the-same-app-on-your-device.png"
+featured_image: "2013-08-16-how-to-have-two-versions-of-the-same-app-on-your-device.png"
 image-width: "144px"
 image-height: "144px"
 description: ""
@@ -38,7 +38,3 @@ iOS系统区分两个App是否相同的根据是App的Bundle ID是否相同，�
 
 
 这篇文章编译自：[How to Have Two Versions of the Same App on Your Device]((http://nilsou.com/blog/2013/07/29/how-to-have-two-versions-of-the-same-app-on-your-device/)) ，原作者Blog上还有其他精彩的文章等你发现。
-
-
-
-

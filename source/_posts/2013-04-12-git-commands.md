@@ -7,7 +7,7 @@ tags: [git]
 ---
 
 
-###使用diff查看文件更改信息
+### 使用diff查看文件更改信息
 {% codeblock lang:bash %}
 #查看未暂存文件的变化（与最近一次的暂存/提交比较）
 $ git diff
@@ -20,7 +20,7 @@ $ git diff 3e4e 5d5a
 #具体到某个文件
 $ git diff 3e4e 5d5a index.md
 {% endcodeblock %}
-###查看任意版本下的某个文件
+### 查看任意版本下的某个文件
 {% codeblock lang:bash %}
 #查看某个版本下某个文件内容
 $ git show i5d5a index.md

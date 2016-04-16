@@ -8,7 +8,7 @@ tags: [iOS]
 
 ##Version & Build 号
 
-![Image1 icon](/assets/resources/version1.jpg)
+![Image1 icon](/assets/version1.jpg)
 
 今天对Xcode里iOS的版本号又有了新的认识，一个叫做Version，一个叫做Build，这两个值都可以在Xcode中选中target，点击“Summary”后看到。 Version在plist文件中的key是“CFBundleShortVersionString”，和AppStore上的版本号保持一致，Build在plist中的key是“CFBundleVersion”，代表build的版本号，该值每次build之后都应该增加1。这两个值都可以在程序中通过下面的代码获得：
 

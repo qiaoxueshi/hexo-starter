@@ -49,7 +49,7 @@ tags: []
 {% endcodeblock %}
 重启Xcode，在Xcode菜单中，打开`Preferences`，选中`Key Binding`，在右上方搜索`GDI`, 会出现类似下图的显示，如果没有的话，请检查上面的每步操作。
 
-![img ](/assets/resources/key_binding.png) 
+![img ](/assets/key_binding.png) 
 
 双击右边的空白处，就可以为每个功能设置不同的快捷键，我设置和Eclipse里的一致，感受了下，非常爽，Cooool
 

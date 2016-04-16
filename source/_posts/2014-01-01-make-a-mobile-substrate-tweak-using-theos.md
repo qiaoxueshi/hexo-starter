@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "使用Theos做一个简单的Mobile Substrate Tweak"
-image: "/assets/resources/2014-01-01-make-a-mobile-substrate-tweak-using-theos-pic0.png"
+featured_image: "2014-01-01-make-a-mobile-substrate-tweak-using-theos-pic0.png"
 image-width: ""
 image-height: ""
 description: ""
@@ -10,24 +10,24 @@ tags: [iOS]
 ---
 
 
-###Mobile Substrate和Theos
+### Mobile Substrate和Theos
 [Mobile Substrate](http://www.cydiasubstrate.com/)是Cydia的作者Jay Freeman ([@saurik](https://twitter.com/CydiaSubstrate))的另外一个牛X的作品，也叫Cydia Substrate,它的主要功能是hook某个App，修改代码比如替换其中方法的实现，Cydia上的tweak都是基于Mobile Substrate实现的。目前支持iOS和Android平台。
 
 根据github上的介绍，[theos](https://github.com/DHowett/theos)是一个跨平台iPhone Makefile系统。它的主要功能是生成iPhone 越狱App、tweak等程序的框架结构，并提供makefile来编译、打包和安装。   
 
-###需要的准备工作：  
-####Mac
+### 需要的准备工作：  
+### #Mac
 * 安装Theos，从Theos的[GitHub](https://github.com/DHowett/theos)上clone下来一份，放到某个目录下，这里我放到了`/opt/`下。
 * 安装Xcode Command Line Tools，可以在命令行下执行`xcode-select --install`来安装或者参考[SO](http://stackoverflow.com/questions/19066647/xcode-5-0-error-installing-command-line-tools)来安装，安装完之后再进行下一步。
 * 安装dpkg ，首先安装MacPorts，可以通过它的[官网](http://www.macports.org/),根据自己的系统版本来选择。安装好之后，重启Terminal，执行`port version`，显示出版本号说明安装成功。如果提示`command not found`，尝试在`/etc/paths`文件中加入下面两个路径:`/opt/local/bin` `/opt/local/sbin`，需要使用root权限来编辑，比如用Vim的话:`sudo vi /etc/paths`. 重启Terminal，再次输入`port version`就应该会显示版本号了，然后执行`sudo port selfupdate`来更新一下,之后执行`sudo port install dpkg`来安装dpkg. 安装dpkg的目的是把我们写的tweak打成deb包。
 
-####JailBreaked iPhone iOS 5/6
+### #JailBreaked iPhone iOS 5/6
 * 安装OpenSSH，打开Cydia的主界面就能看到`OpenSSH Access How-To` 以及`Root Password How-To`的选项，可以按照它的提示一步一步安装，这里不赘述了，需要提醒的是一定要改掉root的密码，防止别人通过SSH连接到你的手机。这一步是为了后面我们通过SSH连接到手机，把deb包安装到手机上准备的。     
   iOS7上的Mobile Substrate还有bug，32位的系统下每次重启后需要重新安装Mobile Substrate才能正常使用, 64位今天貌似才能用。推荐暂时在iOS5/6的机器上测试[2014-01-01]。
 * apt. 在cydia中搜索Apt检查是否已经安装，没有安装就安装一下。
 * ldid. 全名是Link Identify Editor,也直接可以在Cydia中搜索全名安装。
 
-###创建Tweak并安装到手机上
+### 创建Tweak并安装到手机上
 
 首先我在桌面上创建一`mytweaks`的文件夹，保存我们要创建的tweak程序。
 {% codeblock lang:bash %}
@@ -103,7 +103,7 @@ root@192.168.199.126's password:
 
 完成后在Cydia里的“变更”里，往下翻一翻，就能看到一个名字为“FirstTweak”的插件了了，想想接下来出任CEO，迎娶白富美，走向人生巅峰，有木有一点小激动？
 
-###完成一个小功能
+### 完成一个小功能
 
 到目前为止，我们还没写过一行代码呢。下面我们要完成一个小功能：在锁屏界面增加一个UILabel显示一行文字，可以是你的座右铭或者其他的，这里我们显示`Hello, MobileSubstate!!`。
 
@@ -158,20 +158,20 @@ OK，到这里万事具备，只欠Coding了。
 这个`activate`方法在第一次进入锁屏界面的时候会执行，在以后每次非锁屏状态下，按关机键也会执行。
 
 接下来就是通过`MSHookIvar`获得`_awayView`。然后就是我们非常熟悉的了，创建一个UILabel，添加到`_awayView`里。到这里就结束了。`make package install`一下(还需要先执行一下`export THEOS_DEVICE_IP=手机IP地址`)，安装到手机上，等SpringBoard重启完，你会看到类似下图的界面：
-![Alt text](/assets/resources/2014-01-01-make-a-mobile-substrate-tweak-using-theos-pic1.png)
+![Alt text](/assets/2014-01-01-make-a-mobile-substrate-tweak-using-theos-pic1.png)
 
 把手机连接到电脑上，打开Xcode，在Organizer里的Console里能看到程序中使用NSLog打印的信息，用来调试很方便呢。
-![Alt text](/assets/resources/2014-01-01-make-a-mobile-substrate-tweak-using-theos-pic2.png)
+![Alt text](/assets/2014-01-01-make-a-mobile-substrate-tweak-using-theos-pic2.png)
 
 
-###总结
+### 总结
 本文主要是讲Mobile Substrate的作用以及如何使用Theos开发一个简单的tweak。有了这些入门的基础之后，你就可以根据自己的想法来写自己喜欢的tweak。如果你是在iOS7下越狱的话，可以尝试一下把控制中心的AirDrop和音乐播放器给隐藏掉，让控制中心看起来更简洁。接着可以再进行改进，比如在蓝牙关闭的时候不显示AirDrop，开启的时候依然显示，音乐正在播放的时候显示音乐播放器，否则不显示。  
 
 这个小Demo是前两周写的，一直没有时间整理出来，今天抽时间整理了一下文字发了出来，算是送给自己新年的一件礼物吧！   
 
 Thanks，Have Fun！
 
-###More About Substrate And Theos 
+### More About Substrate And Theos 
 * [iphonedevwiki](http://iphonedevwiki.net/index.php/MobileSubstrate)
 * [Theos/Getting Started](http://iphonedevwiki.net/index.php/Theos/Getting_Started)
 * [Cydia Substrate](http://www.cydiasubstrate.com/)(Mobile Substrate也叫做Cydia Substrate) 

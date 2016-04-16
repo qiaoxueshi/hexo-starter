@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift之 @auto_closure"
-image: "/assets/resources/swift-hero.png"
+featured_image: "swift-hero.png"
 image-width: ""
 image-height: ""
 description: ""
