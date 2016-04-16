@@ -2,11 +2,11 @@
 layout: post
 title: "Xcode的iOS项目的版本号设置"
 description: ""
-category: iOS 
+category: iOS
 tags: [iOS]
 ---
 
-##Version & Build 号
+### Version & Build 号
 
 ![Image1 icon](/assets/version1.jpg)
 
@@ -17,7 +17,7 @@ tags: [iOS]
 {% endcodeblock %}
 <br />
 <br />
-##Archive后自动增长build号
+### Archive后自动增长build号
 除此之外，如果我们想在Archive后build号自动增长，就可以使用到Xcode的run script来实现，步骤是
 
 1. 选中项目的target，点击“Build Phases“
@@ -51,7 +51,7 @@ fi
 
 这样在build的时候就会看到build号会自动加1的，想看build时输出的信息，可以通过"View -> Navigators -> Log"来查看最新的build时产生的log。
 <br /><br />
-##Ref:
+### Ref:
 
 1. [Concurrent Debug, Beta and App Store Builds](http://swwritings.com/post/2013-05-20-concurrent-debug-beta-app-store-builds)
 2. [stackoverflow: Xcode-Increment build number only during ARCHIVE?](http://stackoverflow.com/questions/9855955/xcode-increment-build-number-only-during-archive?answertab=active#tab-top)

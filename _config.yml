@@ -14,7 +14,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: joeyio.com #debug: http://127.0.0.1:4000
+url: http://joeyio.com #debug: http://127.0.0.1:4000
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -89,3 +89,12 @@ deploy:
   delete: true #Delete old files on remote host
   verbose: true #Display verbose messages
   ignore_errors: false #Ignore errors
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+
+sitemap:
+    path: sitemap.xml
