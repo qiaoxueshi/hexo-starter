@@ -11,7 +11,7 @@ tags: [iOS, Monad]
 既然有了 map, flatMap 又有什么作用呢？两者有什么联系和区别呢？
 
 ###  map vs flatMap
-map 和 flatMap 的共同点都是接受一个transform函数，把一个容器转换为另外一个容器。
+map 和 flatMap 的共同点都是接受一个 transform 函数，把一个容器转换为另外一个容器。
 
 下面主要从`维度`这一块来解释两者的区别，我们先来简单的定义一下`维度`：
 > 对于类型T，如果类型S是一个容器，且元素的类型包含T，那我们就说：  
@@ -64,6 +64,7 @@ flatMap 函数为什么要这么做呢？在函数式编程中，通常会对一
 map 的 transform 是 `Wrapped -> U` 维度不变, flatMap 的 transform 方法是 `Wrapped -> U?`，维度+1。因为 Optional 的特殊性，flatMap 提供了 one-to-zero/one 的关系。
 
 继续看看 CollectionType：
+
 ```
     public func map<T>(@noescape transform: (Self.Generator.Element) throws -> T) rethrows -> [T]
 
@@ -74,3 +75,5 @@ map 的 transform 是 `Wrapped -> U` 维度不变, flatMap 的 transform 方法�
 有一个map函数和两个flatMap, map 的 transform 函数是 `Element -> T` 维度不变，两个 flatMap 的 transform 函数分别是 `Element -> T? `(one-to-zero/one) 和 `Element -> S: SequenceType`, SequenceType 是个集合，相当于 one-to-any，这两个transform维度都升了一级。
 
 > 特别感谢我的同事 [王轲](http://weibo.com/u/2010406980), 本文的很多思路都得益于和他的讨论。
+
+

@@ -96,8 +96,13 @@ FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:aPath];
 }];
 {% endcodeblock %}
 
+{% imgix blend:color inline-image https://s3.amazonaws.com/example-bucket/example.jpg 1000 500 "'This is a title'" "'This is alt text'" %}
+
 
 更多实例请移步FMDB在GitHub上的[主页](https://github.com/ccgus/fmdb)
 或者访问@唐巧_boy 关于FMDB的[这篇文章](http://blog.devtang.com/blog/2012/04/22/use-fmdb/)
 
 Have Fun！
+![Image1 icon](/assets/code_signing_0.png)  
+![Image1 icon](/assets/code_signing_0.png =100x200)  
+![test](image.png =100x200)

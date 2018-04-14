@@ -99,3 +99,8 @@ feed:
 
 sitemap:
     path: sitemap.xml
+
+
+imgix:
+  match: https://s3.amazonaws.com/example-bucket
+  domain: example.imgix.net
